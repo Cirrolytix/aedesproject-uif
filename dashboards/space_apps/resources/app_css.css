@@ -1,0 +1,194 @@
+@font-face {
+	font-family: "Montserrat";
+	src: url('Montserrat-Regular.otf');
+}
+
+@font-face {
+	font-family: "QuattrocentoSans";
+	src: url('QuattrocentoSans.ttf');
+}
+
+@font-face {
+	font-family: "LeagueSpartan";
+	src: url('LeagueSpartan-Bold.otf');
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url('RobotoCondensed-Light.ttf');
+}
+
+.leaguespartan {
+	font-family: "LeagueSpartan", sans-serif
+}
+
+.montserrat {
+	font-family: "Montserrat", sans-serif
+}
+
+.quattrocento {
+	font-family: "QuattrocentoSans", sans-serif
+}
+
+.roboto {
+	font-family: "Roboto", san-serif
+}
+
+.bold {
+	font-weight: bold
+}
+
+.italic {
+	font-style: italic
+}
+
+a {
+	text-decoration: none
+}
+
+div .w3-button {
+	font-family: Montserrat
+}
+
+.cirroblue {
+	color:#fff!important;
+	background-color:#10253F!important;
+}
+
+.cirrolightblue {
+	color:#fff!important;
+	background-color:#17375E!important;
+}
+
+.ambient {
+	color:#fff!important;
+	background-color:#101010!important;
+}
+
+.topbar {
+	height: 80px;
+	padding: 24px 0px; 
+}
+
+.burger {
+	height: 80px;
+	padding: 12px 10px; 
+	font-size: 36px;
+}
+
+.spacer {
+	height: 96px
+}
+
+.headers {
+	height: 100vh;
+	padding: 128px 0px;
+}
+
+.insetlogo {
+	border-style: solid; 
+	border-width: 5px;
+}
+
+#header-1 {
+	background-image: url('images/header-1.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-2 {
+	background-image: url('images/header-2.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-3 {
+	background-image: url('images/header-3.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-4 {
+	background-image: url('images/header-4.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-5 {
+	background-image: url('images/header-2.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-6 {
+	background-image: url('images/header-9.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-7 {
+	background-image: url('images/header-9.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-9 {
+	background-image: url('images/header-9.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-10 {
+	background-image: url('images/header-10.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-11 {
+	background-image: url('images/header-11.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-12 {
+	background-image: url('images/header-12.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-13 {
+	background-image: url('images/header-13.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-14 {
+	background-image: url('images/header-14.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+#header-15 {
+	background-image: url('images/header-15.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+
+.article {
+	min-height: 200px;
+}
