@@ -19,6 +19,8 @@ Last Updated: January 25, 2023
 
 ## Primary Stakeholders
 
+|   Stakeholder | Status | Affliation |
+|---------------|--------|------------|
 |   DOST R4   |   Actual   |   Department of Science and Technology   |
 |   Mosquito RealTime Census Project   |   Actual   |   Dengue Monitoring Advocacy Group   |
 |   Dr. Thaddeus Carvajal   |   Actual   |   Focus on vector biology, ecology & control of mosquitoes   |
