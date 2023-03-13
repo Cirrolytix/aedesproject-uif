@@ -19,7 +19,7 @@ Last Updated: January 25, 2023
 
 ## Primary Stakeholders
 
-|   Stakeholder | Status | Affliation |
+|   Stakeholder | Status | Role |
 |---------------|--------|------------|
 |   DOST R4   |   Actual   |   Department of Science and Technology   |
 |   Mosquito RealTime Census Project   |   Actual   |   Dengue Monitoring Advocacy Group   |
