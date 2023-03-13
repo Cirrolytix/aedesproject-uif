@@ -35,7 +35,7 @@ To better understand the process workflow of Project AEDES, please read our [Doc
 
 ## Browse by Topic
 
-[Project Charter] (https://github.com/Cirrolytix/aedesproject-uif/blob/main/charter.md)
+[Project Charter](https://github.com/Cirrolytix/aedesproject-uif/blob/main/charter.md)
 [Objectives and Principles](https://github.com/Cirrolytix/aedes_dpg/wiki/Objectives-and-Principles)   
 [Architecture Diagrams] *TO BE UPDATED*
 [Functional Documentation] *TO BE UPDATED*
@@ -44,8 +44,7 @@ To better understand the process workflow of Project AEDES, please read our [Doc
 ## Awards
 Global Award for Best Use of Data, [2019 NASA Space Apps Challenge](https://2019.spaceappschallenge.org/challenges/living-our-world/smash-your-sdgs/teams/aedes-project/project)  
 2020 Earth Observation for the Sustainable Development Goals (GEO SDG) Award, [Group on Earth Observations](https://www.earthobservations.org/geo_blog_obs.php?id=472)
-Digital Public Good Status, [UNICEF Philippines, UNICEF Office of Global Innovation, and Digital Public Goods Alliance]
-(https://digitalpublicgoods.net/blog/unicef-philippines-announces-its-first-digital-public-good-pathfinding-pilot/)
+Digital Public Good Status, [UNICEF Philippines, UNICEF Office of Global Innovation, and Digital Public Goods Alliance](https://digitalpublicgoods.net/blog/unicef-philippines-announces-its-first-digital-public-good-pathfinding-pilot/)
 
 ## Licenses
 
