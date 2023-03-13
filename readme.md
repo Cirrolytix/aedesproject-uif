@@ -35,10 +35,10 @@ To better understand the process workflow of Project AEDES, please read our [Doc
 
 ## Browse by Topic
 
-[Project Charter](https://github.com/Cirrolytix/aedesproject-uif/blob/main/charter.md)
-[Objectives and Principles](https://github.com/Cirrolytix/aedes_dpg/wiki/Objectives-and-Principles)   
-[Architecture Diagrams] *TO BE UPDATED*
-[Functional Documentation] *TO BE UPDATED*
+- [Project Charter](https://github.com/Cirrolytix/aedesproject-uif/blob/main/charter.md)
+- [Objectives and Principles](https://github.com/Cirrolytix/aedes_dpg/wiki/Objectives-and-Principles)   
+- [Architecture Diagrams] *TO BE UPDATED*
+- [Functional Documentation] *TO BE UPDATED*
 
 
 ## Awards
