@@ -29,43 +29,14 @@
 	
 </head>
 <body>
-<!--14.56922034902699, 121.05627085697935-->
 
-
-<div id="map" style="width: 100vw; height: 100vh;"></div>
-
+	<div id="map" style="width: 100vw; height: 100vh;"></div>
 
 <script>
 
+	var coord = [14.56922034902699, 121.05627085697935];
 
-	// Convert a Google Maps coordinate to Leaflet
-	function googleToLeaflet(latlng) {
-	  // Transform Google Maps coordinates to WGS84
-	  var lng = latlng.lng;
-	  var lat = latlng.lat;
-
-	  var x = lng / 20037508.34 * 180;
-	  var y = lat / 20037508.34 * 180;
-
-	  y = 180/Math.PI * (2 * Math.atan(Math.exp(y * Math.PI / 180)) - Math.PI / 2);
-
-	  var wgs84Coord = L.latLng(y, x);
-
-	  // Convert WGS84 coordinates to Leaflet
-	  var leafletCoord = L.Projection.SphericalMercator.unproject(wgs84Coord);
-
-	  return leafletCoord;
-	}
-
-	// Usage
-	var googleCoord = L.latLng(37.7749, -122.4194); // San Francisco, CA
-	var leafletCoord = googleToLeaflet(googleCoord);
-
-	console.log(googleCoord); // Output: LatLng(37.774928,-122.419418)
-	console.log(leafletCoord); // Output: LatLng(37.774928,-122.419418)
-
-
-	const map = L.map('map').setView([leafletCoord], 13);
+	const map = L.map('map').setView(coord, 13);
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
@@ -90,7 +61,7 @@
 */
 
 	const popup = L.popup()
-		.setLatLng([leafletCoord])
+		.setLatLng(coord)
 		.setContent('I am a standalone popup.')
 		.openOn(map);
 		
