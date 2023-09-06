@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[28]:
+# In[1]:
 
 
 from pathlib import Path
@@ -21,7 +21,7 @@ from datetime import datetime
 from functools import reduce
 
 
-# In[2]:
+# In[9]:
 
 
 def load_and_prepare_data(risk_dimension, ISO_COUNTRY_CODE, TARGET_VAR):
@@ -72,13 +72,22 @@ def standardize_data(X, Y):
     
     return X_standardized, Y_rescaled
 
-def ensure_positive_correlation(data, target):
-    """Ensure data has positive correlation with the target."""
-    correlation = np.corrcoef(data, target)[0, 1]
-    return data if correlation >= 0 else -data
 
 def refine_spcs(X_spcs, X_standardized, Y_standardized):
     """Refine the SPCs based on the provided criteria."""
+    # Initialize a list to store boolean flags
+    spc_flags = []
+    
+    def ensure_positive_correlation(data, target):
+        nonlocal spc_flags  # Declare spc_flags as nonlocal
+        correlation = np.corrcoef(data, target)[0, 1]
+        if correlation >= 0:
+            spc_flags.append(True)
+            return data
+        else:
+            spc_flags.append(False)
+            return -data
+    
     # First, ensure positive correlation
     X_spcs_positive_corr = np.apply_along_axis(ensure_positive_correlation, 0, X_spcs, Y_standardized)
     
@@ -89,7 +98,7 @@ def refine_spcs(X_spcs, X_standardized, Y_standardized):
     original_index = X_standardized.index
     refined_df = pd.DataFrame(X_spcs_refined, columns=[f"SPC_{i+1}" for i in range(X_spcs_refined.shape[1])], index=original_index)
     
-    return refined_df
+    return refined_df, spc_flags
 
 def spca_objective(n_components, alpha, ridge_alpha, beta, gamma, X_standardized):
     n_components = int(n_components)
@@ -209,7 +218,7 @@ def run_rfe_optimization(X_for_LR, Y_rescaled):
 
 # Function to save models and metrics
 #def save_models_and_metrics(ISO_COUNTRY_CODE, spca_model, lr_model, selector_model, optimizer, mean_cv_score, std_cv_score):
-def save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_model, lr_model, Y_pred, mean_cv_score, std_cv_score):
+def save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_model, spc_flags, lr_model, X, Y, Y_pred, mean_cv_score, std_cv_score):
     base_path = os.path.join(os.path.dirname(os.getcwd()), "model/INFORM", f"{ISO_COUNTRY_CODE}")
     
     # Get current date in yyyymmdd format
@@ -234,8 +243,18 @@ def save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_model, lr_mod
         loadings_df.columns = [f"SPC_{i+1}" for i in range(spca_model.n_components_)]
     if loadings_df is not None:
         loadings_df.to_pickle(f"{save_path}/{risk_dimension}_spca_loadings.pickle")
+    if X is not None:
+        X.to_csv(f"{save_path}/{risk_dimension}_X.csv")
+    if Y is not None:
+        Y.to_csv(f"{save_path}/{risk_dimension}_Y.csv")
     if Y_pred is not None:
         Y_pred.to_csv(f"{save_path}/{risk_dimension}_Y_pred.csv")
+    if spc_flags is not None:
+        # Save the boolean flags for SPCs
+        with open(f"{save_path}/{risk_dimension}_spc_flags.csv", "w") as f:
+            for flag in spc_flags:
+                f.write(f"{flag}\n")
+
 
     # Save metrics using pandas
     metrics_df = pd.DataFrame({
@@ -246,7 +265,7 @@ def save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_model, lr_mod
                             
 
 
-# In[4]:
+# In[10]:
 
 
 # Main code
@@ -259,6 +278,7 @@ def train_risk_model(ISO_COUNTRY_CODE, TARGET_VAR, risk_dimension):
     spca_best = None
     lr = None
     Y_pred = None
+    spc_flags = None
 
     if n_components_best == 1:
         best_n_features_to_select = run_rfe_optimization(X_standardized, Y_standardized)
@@ -271,7 +291,7 @@ def train_risk_model(ISO_COUNTRY_CODE, TARGET_VAR, risk_dimension):
     else:
         spca_best = SparsePCA(n_components=n_components_best, alpha=best_spca_params['alpha'], ridge_alpha=best_spca_params['ridge_alpha'])
         X_spcs = spca_best.fit_transform(X_standardized)
-        X_for_LR = refine_spcs(X_spcs, X_standardized, Y_standardized)
+        X_for_LR, spc_flags = refine_spcs(X_spcs, X_standardized, Y_standardized)
         lr = LinearRegression()
         lr.fit(X_for_LR, Y_standardized)
         # Generate predicted Y values
@@ -282,10 +302,10 @@ def train_risk_model(ISO_COUNTRY_CODE, TARGET_VAR, risk_dimension):
         mean_cv_score = np.mean(cv_scores)
         std_cv_score = np.std(cv_scores)
 
-    save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_best, lr, Y_pred, mean_cv_score, std_cv_score)
+    save_models_and_metrics(ISO_COUNTRY_CODE, risk_dimension, spca_best, spc_flags, lr, X, Y, Y_pred, mean_cv_score, std_cv_score)
 
 
-# In[33]:
+# In[15]:
 
 
 def train_final_risk_model(ISO_COUNTRY_CODE, TARGET_VAR):
