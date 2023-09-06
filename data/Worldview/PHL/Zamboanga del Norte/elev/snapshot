@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<ServiceExceptionReport version="1.3.0" xmlns="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/ogc http://schemas.opengis.net/wms/1.3.0/exceptions_1_3_0.xsd">
+<ServiceException>
+msDrawMap(): WMS connection error. Failed to draw WMS layer named &#39;Coastlines_15m&#39;. This most likely happened because the remote WMS server returned an invalid image, and XML exception or another unexpected result in response to the GetMap request. Also check and make sure that the layer&#39;s connection URL is valid.
+msDrawRasterLayerLow(): Unable to access file. Corrupt, empty or missing file &#39;/vsimem/msout/64ef4686_18f5_0.img.tmp&#39; for layer &#39;Coastlines_15m&#39;. 
+</ServiceException>
+</ServiceExceptionReport>
