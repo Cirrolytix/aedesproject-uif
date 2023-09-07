@@ -143,6 +143,7 @@ def risk_score_data(ISO_COUNTRY_CODE):
     # Load the final model and compute the final Risk score
     final_model = load_final_model(ISO_COUNTRY_CODE)
     consolidated_df['Final_Risk_Score'] = final_model.predict(consolidated_df_temp)
+
     consolidated_df.index = new_data.index
     
     # Include population-at-risk per location
