@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[10]:
 
 
 from pathlib import Path
@@ -101,7 +101,7 @@ def score_final_risk(ISO_COUNTRY_CODE, new_data_hazard, new_data_vulnerability, 
 
 
 
-# In[9]:
+# In[11]:
 
 
 def load_final_model(ISO_COUNTRY_CODE):
@@ -143,10 +143,17 @@ def risk_score_data(ISO_COUNTRY_CODE):
     # Load the final model and compute the final Risk score
     final_model = load_final_model(ISO_COUNTRY_CODE)
     consolidated_df['Final_Risk_Score'] = final_model.predict(consolidated_df_temp)
+
+    consolidated_df.index = new_data.index
+    
+    # Include population-at-risk per location
+    popn_df = pd.read_csv(os.path.join(os.path.dirname(os.getcwd()), "processed/INFORM", f"{ISO_COUNTRY_CODE}/INFORM.csv")).set_index("Location")
+    popn_df = popn_df[[c for c in popn_df.columns if "population" in c]]
+    consolidated_df = consolidated_df.merge(popn_df, left_index=True, right_index=True, how="left")
     
     # Include reporting_date
     consolidated_df['reporting_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    consolidated_df.index = new_data.index
+    
     
     # Export to CSV
     out_dir = os.path.join(os.path.dirname(os.getcwd()), "processed/Dashboard/INFORM", ISO_COUNTRY_CODE)
