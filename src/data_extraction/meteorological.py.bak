@@ -91,7 +91,7 @@ def get_weather(Subregion, latlong, start, end, params):
     return df
 
 def fetch_weather_data(iso_country_code, start, end):
-    csv_path = os.path.join(os.path.dirname(os.getcwd()), f"data\Admin_Boundaries_{iso_country_code}.csv")
+    csv_path = os.path.join(os.path.dirname(os.getcwd()), f"data\Admin_Boundaries_{iso_country_code}.csv"
     df = pd.read_csv(csv_path)
     df['Subregion+Region'] = df['Subregion'] + "+" + df['Region']
     df['Subregion+Region'] = df['Subregion+Region'].str.replace(" ", "+")
