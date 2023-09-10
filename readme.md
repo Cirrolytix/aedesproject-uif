@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/Cirrolytix/aedesproject-uif/graph/badge.svg?token=GL2XS3XT5W)](https://codecov.io/gh/Cirrolytix/aedesproject-uif)
+
 # Project AEDES DPG Repository
 
 ## What is Project AEDES?
