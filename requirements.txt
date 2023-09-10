@@ -27,7 +27,7 @@ rasterio==1.3.3
 Requests==2.31.0
 retrying==1.3.4
 SCALECAST==0.18.5
-SCALECAST==0.18.1
+#SCALECAST==0.18.1
 #scikit_image==0.18.3
 #scikit_image==0.19.2
 scikit_image==0.19.3
