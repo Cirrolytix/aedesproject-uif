@@ -1,7 +1,7 @@
 auto_ts==0.0.68
 bayesian_optimization==1.4.3
 Fiona==1.8.22
-Flask==1.1.2
+#Flask==1.1.2
 Flask==2.2.2
 geopandas==0.13.2
 joblib==1.1.0
