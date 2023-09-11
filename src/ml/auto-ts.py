@@ -61,12 +61,13 @@ def grangers_causation_matrix(data, target, maxlag=12, test='ssr_chi2test', verb
     for c in df.columns:
         test_result = grangercausalitytests(data[[target, c]], maxlag=maxlag, verbose=False)
         p_values = [round(test_result[i+1][0][test][1],4) for i in range(maxlag)]
-        if verbose: print(f'Y = {r}, X = {c}, P Values = {p_values}')
+        if verbose: print(f'Y = {target}, X = {c}, P Values = {p_values}')
         min_p_value = np.min(p_values)
         df.loc[target, c] = min_p_value
     df.columns = [var for var in variables]
     df.index = [str(target)]
     return df.columns[df.loc[target].le(0.05)].tolist()
+
 
 def train_fcast_model(iso_country_code, adm, target, fcst_length, n_ar, freq, n_fold, m):
     """Main function to execute the forecasting pipeline."""
