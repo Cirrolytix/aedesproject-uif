@@ -10,6 +10,7 @@ import datetime
 import os
 import json
 from datetime import timedelta
+import time
 
 # Function to get latitude and longitude
 def get_lat_lon(query):
