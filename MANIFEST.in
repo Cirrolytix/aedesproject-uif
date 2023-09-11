@@ -1,8 +1,35 @@
 # Include all files (this is a catch-all, but can be refined if needed)
 include *
 
-# Include all directories and their content recursively
+# Include the src directory and its contents
 graft src
+
+# Explicitly include the model, processed, and data directories
+graft model
+graft processed
+graft data
+
+# Exclude specific subdirectories from data
+prune data/Worldview
+
+# Exclude all files with extensions but keep the directory structure
+global-exclude *.*
+
+# Include the specific file and placeholder files
+include data/INFORM_DF_Variables.csv
+include model/.keep
+include processed/.keep
+
+# Include all Python files
+recursive-include * *.py
+
+# Exclude all other directories
+prune dashboards
+prune dataset
+prune documents
+prune Notebooks
+prune qgis-hotspot-extraction
+prune tests
 
 # Include README and requirements
 include README.md
