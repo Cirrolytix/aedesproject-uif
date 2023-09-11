@@ -465,7 +465,7 @@ pywavelets==1.4.1
 pywebio==1.8.2
     # via -r requirements.in
 #pywin32==305
-pywin32
+pypiwin32
     # via jupyter-core
 pywinpty==2.0.11
     # via
