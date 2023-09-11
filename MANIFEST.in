@@ -1,0 +1,14 @@
+# Include all files (this is a catch-all, but can be refined if needed)
+include *
+
+# Include all directories and their content recursively
+graft src
+
+# Include README and requirements
+include README.md
+include requirements.txt
+
+# Exclude all bytecode files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__/
