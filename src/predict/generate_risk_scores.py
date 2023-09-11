@@ -161,5 +161,5 @@ def risk_score_data(ISO_COUNTRY_CODE):
     consolidated_df.to_csv(os.path.join(out_dir, "INFORM_scores.csv"))
 
 # Example Usage
-risk_score_data(ISO_COUNTRY_CODE)
+#risk_score_data(ISO_COUNTRY_CODE)
 
