@@ -13,4 +13,5 @@ setup(
     install_requires=open('requirements.txt').read().splitlines(),
 	url='https://github.com/Cirrolytix/aedesproject-uif',
     license='MIT License',
+    zip_safe=False    # This line is added to ensure the package is not installed as an egg
 )
