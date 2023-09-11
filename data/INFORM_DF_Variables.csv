@@ -1,0 +1,69 @@
+﻿Variable,Variable Name,Risk Dimension
+cases,Dengue Cases,Hazard
+TS,Earth Skin Temperature (C),Hazard
+T2M,Temperature at 2 Meters (C),Hazard
+QV2M,Specific Humidity at 2 Meters (g/kg),Hazard
+RH2M,Relative Humidity at 2 Meters (%),Hazard
+T2MDEW,Dew/Frost Point at 2 Meters (C),Hazard
+T2MWET,Wet Bulb Temperature at 2 Meters (C),Hazard
+GWETTOP,Surface Soil Wetness (1),Hazard
+T2M_MAX,Temperature at 2 Meters Maximum (C),Hazard
+T2M_MIN,Temperature at 2 Meters Minimum (C),Hazard
+GWETPROF,Profile Soil Moisture (1),Hazard
+GWETROOT,Root Zone Soil Wetness (1),Hazard
+CLOUD_AMT,SYN1deg Cloud Amount (%),Hazard
+T2M_RANGE,Temperature at 2 Meters Range (C),Hazard
+PRECTOTCORR,Precipitation Corrected (mm/day),Hazard
+ALLSKY_SFC_LW_DWN,SYN1deg All Sky Surface Longwave Downward Irradiance (W/m^2),Hazard
+NDVI,Normalized Difference Vegetation Index,Hazard
+NDWI,Normalized Difference Water Index,Hazard
+river,Number of Rivers,Hazard
+pond,Number of Ponds,Hazard
+reservoir,Number of Reservoirs,Hazard
+basin,Number of Basins,Hazard
+lake,Number of Lakes,Hazard
+stream,Number of Streams,Hazard
+lagoon,Number of Lagoons,Hazard
+fishpond,Number of Fishponds,Hazard
+moat,Number of Moats,Hazard
+oxbow,Number of Oxbows,Hazard
+canal,Number of Canals,Hazard
+ditch,Number of Ditchs,Hazard
+Creek,Number of Creeks,Hazard
+shallow,Number of Shallows,Hazard
+stream_pool,Number of Stream Pools,Hazard
+wastewater,Number of Wastewaters,Hazard
+Swimming_Pool,Number of Swimming Pools,Hazard
+tidal,Number of Tidals,Hazard
+Pala-Isdaan,Number of Pala-Isdaans,Hazard
+toilets,Number of Toilets,Hazard
+waste_disposal,Number of Waste Disposals,Hazard
+waste_transfer_station,Number of Waste Transfer Stations,Hazard
+NDBI,Normalized Difference Built-up Index,Vulnerability
+total density,Total Population Density,Vulnerability
+children density,Children under 5 y.o. Population Density,Vulnerability
+elderly density,Elderly 60+ y.o. Population Density,Vulnerability
+youth density,Youth 15-24 y.o. Population Density,Vulnerability
+Average RWI,Average Relative Wealth Index,Vulnerability
+school,Number of schools,Vulnerability
+university,Number of universities,Vulnerability
+college,Number of colleges,Vulnerability
+kindergarten,Number of kindergartens,Vulnerability
+childcare,Number of childcares,Vulnerability
+prep_school,Number of prep schools,Vulnerability
+dormitory,Number of dormitories,Vulnerability
+nursing_home,Number of nursing homes,Vulnerability
+quarantine_facility,Number of quarantine facilities,Vulnerability
+birthing_centre,Number of birthing centres,Vulnerability
+residential_building,Number of residential buildings,Vulnerability
+hospital,Number of Hospitals,Lack of Coping Capacity
+clinic,Number of Clinics,Lack of Coping Capacity
+health_post,Number of Health Posts,Lack of Coping Capacity
+healthcare,Number of Healthcares,Lack of Coping Capacity
+pharmacy,Number of Pharmacies,Lack of Coping Capacity
+doctors,Number of Doctors,Lack of Coping Capacity
+rescue,Number of Rescues,Lack of Coping Capacity
+community_centre,Number of Community Centres,Lack of Coping Capacity
+social_centre,Number of Social Centres,Lack of Coping Capacity
+social_facility,Number of Social Facilities,Lack of Coping Capacity
+emergency_service,Number of Emergency Services,Lack of Coping Capacity
