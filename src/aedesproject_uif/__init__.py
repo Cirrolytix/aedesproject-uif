@@ -23,12 +23,12 @@ def setup_project_structure(destination_path):
     with zipfile.ZipFile(io.BytesIO(response.content)) as z:
         for file_info in z.infolist():
             # Check if the file is in one of the desired directories
-            if file_info.filename.startswith("aedesproject-uif-master/model/") or \
-               file_info.filename.startswith("aedesproject-uif-master/processed/") or \
-               file_info.filename == "aedesproject-uif-master/data/INFORM_DF_Variables.csv":
+            if file_info.filename.startswith("aedesproject-uif-main/model/") or \
+               file_info.filename.startswith("aedesproject-uif-main/processed/") or \
+               file_info.filename == "aedesproject-uif-main/data/INFORM_DF_Variables.csv":
                 
-                # Remove the 'aedesproject-uif-master/' prefix from the filename
-                new_filename = file_info.filename.replace("aedesproject-uif-master/", "")
+                # Remove the 'aedesproject-uif-main/' prefix from the filename
+                new_filename = file_info.filename.replace("aedesproject-uif-main/", "")
                 target_path = os.path.join(destination_path, new_filename)
                 
                 # If it's a directory, just create it and continue to the next item
