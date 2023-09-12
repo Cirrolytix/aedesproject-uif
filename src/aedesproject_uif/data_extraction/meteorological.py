@@ -91,7 +91,7 @@ def get_weather(Subregion, latlong, start, end, params):
     return df
 
 def fetch_weather_data(iso_country_code, start, end):
-    csv_path = os.path.join(os.path.dirname(os.getcwd()), f"data\Admin_Boundaries_{iso_country_code}.csv"
+    csv_path = os.path.join(os.path.dirname(os.getcwd()), f"data\Admin_Boundaries_{iso_country_code}.csv")
     df = pd.read_csv(csv_path)
     df['Subregion+Region'] = df['Subregion'] + "+" + df['Region']
     df['Subregion+Region'] = df['Subregion+Region'].str.replace(" ", "+")
@@ -105,7 +105,7 @@ def fetch_weather_data(iso_country_code, start, end):
             if len(new_df) == 0:
                 new_df = get_weather(Subregion, latlong, start, end, params)
             else:
-                new_df = new_df.append(get_weather(Subregion, latlong, start, end, params))
+                new_df = pd.concat([new_df,get_weather(Subregion, latlong, start, end, params)])
         
             time.sleep(random.uniform(1, 5))
             

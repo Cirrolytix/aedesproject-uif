@@ -40,7 +40,7 @@ def process_osm_data(iso_country_code: str, adm_level: int) -> None:
         df["Location"] = df["Location"].apply(lambda l: l.upper().strip())
         df = df[[col for col in columns if col in df.columns]]
         if len(combined_df) == 0:
-            combined_df = combined_df.append(df)
+            combined_df = pd.concat([combined_df,df])
         else:
             combined_df = combined_df.merge(df, on="Location", how="left")
     

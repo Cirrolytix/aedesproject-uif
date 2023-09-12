@@ -62,13 +62,13 @@ def fetch_osm(iso_country_code: str, admin_level: int) -> None:
         for tag in tag_dfs.keys():
             try:
                 df = ox.features_from_polygon(geometry, tags={tag: True})
-                cnt_df = pd.DataFrame(df[tag].value_counts()).reset_index().rename(columns={"index": tag, tag: "count"}).T
+                cnt_df = pd.DataFrame(df[tag].value_counts()).reset_index().T
                 cnt_df2 = cnt_df.drop(index=[tag])
                 cnt_df2.columns = cnt_df.iloc[0].values.tolist()
                 cnt_df2["Location"] = str(loc)
                 cnt_df2["Date_Extracted"] = datetime.now().strftime('%Y-%m-%d')
                 
-                tag_dfs[tag] = tag_dfs[tag].append(cnt_df2, ignore_index=True)
+                tag_dfs[tag] = pd.concat([tag_dfs[tag], cnt_df2], ignore_index=True)
                 
             except Exception as e:
                 print(f"No {tag} found for {loc}. Error: {e}")
