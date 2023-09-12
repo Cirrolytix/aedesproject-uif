@@ -56,7 +56,7 @@ def fetch_google_trends(iso_country_code, start_date, end_date):
                 search_vol["region"] = region
                 search_vol["date_extracted"] = pd.Timestamp.now().strftime('%Y-%m-%d')
 
-                df_trends = df_trends.append(search_vol, ignore_index=True)
+                df_trends = pd.concat([df_trends, search_vol], ignore_index=True)
 
         except Exception as e:
             logging.error(f"Error occurred for geo {geo}: {e}")

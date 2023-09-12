@@ -80,7 +80,7 @@ def forecast_data(iso_country_code, adm, target, n_ar, freq):
     col_nm = target.title() + " (Forecast)"
     fcast_df2 = f.export("lvl_fcsts").rename(columns={"DATE": "date", best_model: col_nm}).set_index("date")
     fcast_df2[col_nm] = fcast_df2[col_nm].apply(lambda c: 0 if c < 0 else round(c,0))
-    fcast_df = fcast_df.append(fcast_df2)
+    fcast_df = pd.concat([fcast_df, fcast_df2])
     fcast_df["Subregion"] = adm
     fcast_df["ISO Country Code"] = iso_country_code
     fcast_df["Date Forecast"] = df2.date.max().strftime('%Y-%m-%d')
