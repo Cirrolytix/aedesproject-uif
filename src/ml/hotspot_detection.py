@@ -60,7 +60,7 @@ def detect_hotspots(iso_country_code: str, subregion: str, start_date: str, end_
     ndwi_files = [file for file in ndwi_files if rasterio.open(file).read(1).shape == modal_shape]
 
     # Define your duration threshold
-    duration_threshold = 4
+    #duration_threshold = 4
 
     # Find matching filenames
     ndvi_filenames = {re.search(r'\d{7}', os.path.basename(f)).group(): f for f in ndvi_files}

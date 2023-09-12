@@ -1,0 +1,22 @@
+site_name: Advanced Early Detection and Exploration Service (AEDES) Documentation
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'lightBlue'
+    accent: 'Blue'
+  logo: 'images/aedes_logo.png'
+extra_css:
+  - 'css/custom_css.css'
+nav:
+  - 'Introduction': 'index.md'
+  - 'Methodology: Dengue Forecasting': 'dengue_forecasting.md'
+  - 'Methodology: Dengue Hotspot Detection': 'dengue_hotspot_detection.md'
+  - 'Methodology: Multidimensional Risk Scoring': 'multidimensional_risk_scoring.md'
+  - 'Setting Up Project Structure in Working Directory': 'initialization.md'
+  - 'Syntax: Data Extraction': 'data_extraction.md'
+  - 'Syntax: Data Preparation': 'data_preparation.md'
+  - 'Syntax: Machine Learning': 'ml.md'
+  - 'Syntax: Prediction': 'predict.md'
+  - 'Changelog': 'changelog.md'
+    
