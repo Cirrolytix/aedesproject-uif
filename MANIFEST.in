@@ -1,10 +1,10 @@
-# Include all files (this is a catch-all, but can be refined if needed)
+# Include all files in the root (this is a catch-all, but can be refined if needed)
 include *
 
-# Include the src directory and its contents
-graft src
+# Include the src directory and its contents (especially the aedesproject_uif package)
+graft src/aedesproject_uif
 
-# Explicitly include the model, processed, and data directories
+# Explicitly include the model, processed, and data directories (assuming they are at the root level)
 graft model
 graft processed
 graft data
@@ -12,18 +12,28 @@ graft data
 # Exclude specific subdirectories from data
 prune data/Worldview
 
-# Exclude all files with extensions but keep the directory structure
-global-exclude *.*
 
-# Include the specific file and placeholder files
+# Exclude specific file extensions
+global-exclude *.csv
+global-exclude *.tif
+global-exclude *.xlsx
+global-exclude *.bak
+global-exclude *.md
+global-exclude *.geojson
+global-exclude *.pkl
+global-exclude *.pickle
+
+
+# Include specific files and placeholder files
+include setup.py
 include data/INFORM_DF_Variables.csv
 include model/.keep
 include processed/.keep
 
-# Include all Python files
-recursive-include * *.py
+# Include all Python files from the aedesproject_uif package and its subdirectories
+recursive-include src/aedesproject_uif *.py
 
-# Exclude all other directories
+# Exclude specific directories (assuming they are at the root level)
 prune dashboards
 prune dataset
 prune documents
@@ -35,7 +45,7 @@ prune tests
 include README.md
 include requirements.txt
 
-# Exclude all bytecode files
+# Exclude all bytecode files and __pycache__ directories
 global-exclude *.pyc
 global-exclude *.pyo
 global-exclude __pycache__/

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 	
 setup(
-    name='aedesproject-uif',
+    name='aedesproject_uif',
     version='4.0.0',
     author='Tayco, Frances Claire, Ligot, Dominic Vincent, and Soong, Gabriel Kristopher',
     author_email='support@aedesproject.org',
@@ -9,8 +9,9 @@ setup(
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
 	python_requires='>=3.8',
-    packages=find_packages(exclude=["tests*"]),
+    packages=find_packages(where='src', exclude=["tests*"]),
     package_dir={'': 'src'},
+    include_package_data=True,
     install_requires=open('requirements.txt').read().splitlines(),
 	url='https://github.com/Cirrolytix/aedesproject-uif',
     license='MIT License',
