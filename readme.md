@@ -1,5 +1,7 @@
 [![codecov](https://codecov.io/gh/Cirrolytix/aedesproject-uif/graph/badge.svg?token=GL2XS3XT5W)](https://codecov.io/gh/Cirrolytix/aedesproject-uif)
 
+[![Test Coverage](https://github.com/Cirrolytix/aedesproject-uif/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/Cirrolytix/aedesproject-uif/actions/workflows/test-coverage.yml)
+
 # Project AEDES DPG Repository
 
 ## What is Project AEDES?
