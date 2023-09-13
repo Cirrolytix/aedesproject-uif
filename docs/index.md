@@ -39,7 +39,7 @@ By doing this, AEDES is addressing 2 key challenges for public health and local 
 
 ## Installation
 
-To install the package, run the following command:
+User must have `Python>=3.8` and `pip` ready to use.  To install the package, run the following command:
 
 ```bash
 pip install git+https://github.com/Cirrolytix/aedesproject-uif.git

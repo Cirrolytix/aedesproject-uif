@@ -13,6 +13,7 @@ nav:
   - 'Methodology: Dengue Forecasting': 'dengue_forecasting.md'
   - 'Methodology: Dengue Hotspot Detection': 'dengue_hotspot_detection.md'
   - 'Methodology: Multidimensional Risk Scoring': 'multidimensional_risk_scoring.md'
+  - 'Prerequisites': 'prerequisites.md'
   - 'Setting Up Project Structure in Working Directory': 'initialization.md'
   - 'Syntax: Data Extraction': 'data_extraction.md'
   - 'Syntax: Data Preparation': 'data_preparation.md'
