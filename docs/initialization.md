@@ -24,6 +24,10 @@ This function sets up the project structure by downloading and extracting certai
 
 ```python
 from aedesproject_uif import setup_project_structure
-setup_project_structure("C:\USERS\USER123\Documents\aedes")
+setup_project_structure(r"C:\USERS\USER123\Documents\aedes")
 ```
 
+### Important Note:
+First, create a subfolder in the *destination_path* for the \*.py or \*.ipynb file that you will run (e.g. a subfolder named **src**).  Create the Python file or Jupyter notebook that will perform the project structure setup in that subfolder, then run it.  
+
+Ensure that all Python files or Jupyter notebooks that contain the codes that run the processes in aedesproject-uif are saved and ran from that code subfolder.
