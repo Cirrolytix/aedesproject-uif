@@ -21,7 +21,7 @@ def fetch_geoboundaries(iso_country_code, admin_level):
     retries = 3
     for i in range(retries):
         try:
-            response = requests.get(api_url, timeout=20)
+            response = requests.get(api_url, timeout=30)
             
             if response.status_code != 200:
                 print(f"Failed to fetch data from GeoBoundaries API. Status code: {response.status_code}")
