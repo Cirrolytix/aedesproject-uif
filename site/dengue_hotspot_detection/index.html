@@ -1,0 +1,589 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../dengue_forecasting/">
+      
+      
+        <link rel="next" href="../multidimensional_risk_scoring/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Methodology: Dengue Hotspot Detection - Advanced Early Detection and Exploration Service (AEDES) Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom_css.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lightBlue" data-md-color-accent="Blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#detecting-stagnant-water-as-dengue-hotspots" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-header__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Early Detection and Exploration Service (AEDES) Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Methodology: Dengue Hotspot Detection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-nav__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    Advanced Early Detection and Exploration Service (AEDES) Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dengue_forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Hotspot Detection
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Hotspot Detection
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    Data Sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vegetation-classification-and-water-detection" class="md-nav__link">
+    Vegetation Classification and Water Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndwi-variability-and-stagnant-water-detection" class="md-nav__link">
+    NDWI Variability and Stagnant Water Detection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multidimensional_risk_scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Multidimensional Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting Up Project Structure in Working Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_extraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Extraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_preparation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Preparation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    Data Sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vegetation-classification-and-water-detection" class="md-nav__link">
+    Vegetation Classification and Water Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndwi-variability-and-stagnant-water-detection" class="md-nav__link">
+    NDWI Variability and Stagnant Water Detection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="detecting-stagnant-water-as-dengue-hotspots">Detecting Stagnant Water as Dengue Hotspots</h1>
+<p>Dengue fever, a mosquito-borne viral infection, poses significant public health risks, particularly in tropical and subtropical regions (Gubler, 1998). One of the primary breeding grounds for the Aedes aegypti mosquito, the vector for dengue, is stagnant water bodies. Traditional methods of identifying these hotspots often involve labor-intensive field surveys, which are not scalable and may lack temporal relevance. Remote sensing technologies offer a more efficient, scalable, and timely approach to identifying these critical areas (Wood et al., 2017). This paper outlines a comprehensive methodology for detecting stagnant water bodies as potential dengue hotspots using a threshold-based method applied on satellite images.</p>
+<h2 id="data-sources">Data Sources</h2>
+<p>The methodology employs NDVI for vegetation detection and NDWI for water body identification, both of which are widely recognized in the remote sensing community for their reliability.  Both are calculated from spectral data of Harmonized Landsat and Sentinel-2 satellite images.</p>
+<p>The use of remote sensing indices like the Normalized Difference Water Index (NDWI) and the Normalized Difference Vegetation Index (NDVI) has gained prominence in environmental monitoring, particularly in the detection of surface water and vegetation cover. NDWI is highly effective in identifying water bodies, as it is sensitive to changes in liquid water content of leaves and can differentiate between water bodies and other land cover types [McFeeters (2013)].  This makes NDWI a reliable tool for detecting stagnant water, which is a potential breeding ground for mosquitoes.</p>
+<p>Moreover, NDVI is traditionally used for vegetation monitoring but has also been employed to distinguish water bodies, especially in complex terrains [Olayemi et al. (2019)]. The combination of NDWI and NDVI can provide a more comprehensive understanding of the environmental conditions conducive to mosquito breeding. For instance, while NDWI can identify the presence of water, NDVI can help in understanding the vegetation around it, which can also be a factor in mosquito breeding [Chua (n.d.), Ligot and Toledo (2021)].</p>
+<p>Stagnant water bodies are likely to exhibit less variance in spectral characteristics over time compared to flowing water bodies. Hence, temporal range is included as a parameter to understand the seasonality of these potential hotspots.</p>
+<h2 id="vegetation-classification-and-water-detection">Vegetation Classification and Water Detection</h2>
+<p>The methodology employs a three-tiered classification of vegetation—sparse, moderate, and dense—based on NDVI values. Specifically, each pixel of NDVI satellite images is classified into the three levels of vegetation using percentile-based thresholds (less than the 2nd percentile, between the 2nd and 98th percentile, and greater than the 98th percentile for sparse, moderate, and dense vegetation, respectively).  Within each category, water bodies are detected using the values of the pixels of NDWI images (greater than the 98th percentile).  This acknowledges that high-NDVI areas (dense vegetation) will have different NDWI characteristics than low-NDVI areas (sparse or no vegetation).  </p>
+<h2 id="ndwi-variability-and-stagnant-water-detection">NDWI Variability and Stagnant Water Detection</h2>
+<p>To distinguish between transient and stagnant water bodies, a stagnancy duration is required to ensure that only water bodies that have been stagnant for a significant period are flagged as potential hotspots.  The methodology also includes the standard deviation of NDWI values across time as a criterion in detection.  High variability might suggest that a water body is more likely to be transient, such as a puddle that forms after a rain event and then dries up, whereas low variability might suggest that a water body is more likely to be stagnant.</p>
+<h1 id="references">References</h1>
+<p>Gubler, D. J. (1998). Dengue and dengue hemorrhagic fever. Clinical microbiology reviews, 11(3), 480-496.</p>
+<p>Wood, B. L., Beck, L. R., Washino, R. K., Palchick, S. M., &amp; Sebesta, P. D. (2017). Spectral and spatial characterization of rice field mosquito habitat. International Journal of Remote Sensing, 18(1), 137-156.</p>
+<p>McFeeters, S. K. (2013). Using the Normalized Difference Water Index (NDWI) within a Geographic Information System to Detect Swimming Pools for Mosquito Abatement: A Practical Approach. Remote Sensing, 5(7), 3544-3561. DOI: 10.3390/rs5073544</p>
+<p>Olayemi, I. K., Ande, A. T., Danlami, G., &amp; Abdullahi, U. (2019). An Assessment of Surface Water Detection Methods for Water Resource Management in the Nigerien Sahel. Sensors, 20(2), 431. DOI: 10.3390/s20020431</p>
+<p>Chua, W. (n.d.). Project Still Water: A Free Workshop Aimed at Combating Dengue Using Satellite Data [PowerPoint slides].  https://github.com/docligot/aedesproject/blob/master/literature/Stagnant%20Water%20Maps%20from%20Satellite%20Infrared%20Data.pdf</p>
+<p>Ligot, D.V., Toledo, M. (2021). Advanced Early Dengue Prediction and Exploration Service (AEDES). Academia Letters, Article 2956. https://doi.org/10.20935/AL2956 , Available at SSRN: https://ssrn.com/abstract=3902598 or http://dx.doi.org/10.2139/ssrn.3902598</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

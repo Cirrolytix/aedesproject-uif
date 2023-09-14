@@ -1,0 +1,1062 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../data_preparation/">
+      
+      
+        <link rel="next" href="../predict/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Syntax: Machine Learning - Advanced Early Detection and Exploration Service (AEDES) Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom_css.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lightBlue" data-md-color-accent="Blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-header__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Early Detection and Exploration Service (AEDES) Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Syntax: Machine Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-nav__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    Advanced Early Detection and Exploration Service (AEDES) Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dengue_forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dengue_hotspot_detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Hotspot Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multidimensional_risk_scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Multidimensional Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting Up Project Structure in Working Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_extraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Extraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_preparation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Preparation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Syntax: Machine Learning
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Machine Learning
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-ts" class="md-nav__link">
+    auto-ts
+  </a>
+  
+    <nav class="md-nav" aria-label="auto-ts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotspot_detection" class="md-nav__link">
+    hotspot_detection
+  </a>
+  
+    <nav class="md-nav" aria-label="hotspot_detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_1" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_1" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk_model_dev" class="md-nav__link">
+    risk_model_dev
+  </a>
+  
+    <nav class="md-nav" aria-label="risk_model_dev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_2" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_2" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_3" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_3" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-ts" class="md-nav__link">
+    auto-ts
+  </a>
+  
+    <nav class="md-nav" aria-label="auto-ts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotspot_detection" class="md-nav__link">
+    hotspot_detection
+  </a>
+  
+    <nav class="md-nav" aria-label="hotspot_detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_1" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_1" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk_model_dev" class="md-nav__link">
+    risk_model_dev
+  </a>
+  
+    <nav class="md-nav" aria-label="risk_model_dev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_2" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_2" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_3" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_3" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="machine-learning">Machine Learning</h1>
+<h2 id="overview">Overview</h2>
+<p>This section covers the various modules used for machine learning in aedesproject-uif. These modules handle the 
+training of forecasting and risk models.</p>
+<hr />
+<h2 id="auto-ts">auto-ts</h2>
+<h3 id="description">Description</h3>
+<p>This module handles auto time-series modeling pipeline in aedesproject-uif.</p>
+<h3 id="main-functions">Main Functions</h3>
+<h4 id="function-name">Function Name</h4>
+<p><code>train_fcast_model(iso_country_code, adm, target, fcst_length, n_ar, freq, n_fold, m)</code></p>
+<h4 id="description_1">Description</h4>
+<p>Main function used for auto time-series modeling.  It includes automatic selection of optimal transformation, tuning, model fitting, evaluation, and best model selection.</p>
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of a country.</li>
+<li><code>adm</code>: Subregion name for which to train the forecasting model.</li>
+<li><code>target</code>: Target outcome to forecast.</li>
+<li><code>fcst_length</code>: Length of forecast horizon.  Equivalent to number of steps ahead to forecast.</li>
+<li><code>n_ar</code>: Number of autoregressive (AR) terms to include in the model fitting.</li>
+<li><code>freq</code>: Frequency of the dates in the data being modelled.  Refer to this <a href="https://pandas.pydata.org/docs/user_guide/timeseries.html#timeseries-offset-aliases">link</a> for the valid values.</li>
+<li><code>n_fold</code>: Number of folds to be used in cross-validation.</li>
+<li><code>m</code>: Number of observations that counts one seasonal step. For Hourly: 24, Weekly: 52, Monthly: 12, Quarterly: 4.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.ml.auto-ts import train_fcast_model
+train_fcast_model(&quot;PHL&quot;, &quot;Zamboanga del Sur&quot;, &quot;cases&quot;, 4, 12, 'W', 5, 52)
+</code></pre>
+<hr />
+<h2 id="hotspot_detection">hotspot_detection</h2>
+<h3 id="description_2">Description</h3>
+<p>This module handles hotspot detection pipeline in aedesproject-uif.</p>
+<h3 id="main-functions_1">Main Functions</h3>
+<h4 id="function-name_1">Function Name</h4>
+<p><code>detect_hotspots(iso_country_code, subregion, start_date, end_date, duration_threshold)</code></p>
+<h4 id="description_3">Description</h4>
+<p>Main function used for hotspot detection.  This detects potential stagnant water based on varying thresholds of Normalized Difference Water Index (NDWI) across different levels of Normalized Difference Vegetation Index (NDVI).</p>
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of a country.</li>
+<li><code>subregion</code>: Subregion in which to detect potential stagnant water bodies.</li>
+<li><code>start_date</code>: Start date of analysis window (in 'dd/mm/yyyy'). </li>
+<li><code>end_date</code>: End date of analysis window (in 'dd/mm/yyyy'). </li>
+<li><code>duration_threshold</code>: Number of consecutive times a pixel is detected as water body to be definitively considered as 
+stagnant water.</li>
+</ul>
+<h3 id="usage_1">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.ml.hotspot_detection import detect_hotspots
+detect_hotspots(&quot;PHL&quot;, &quot;Zamboanga Sibugay&quot;, '18/03/2023', '18/06/2023', 8)
+</code></pre>
+<hr />
+<h2 id="risk_model_dev">risk_model_dev</h2>
+<h3 id="description_4">Description</h3>
+<p>This module handles hazard, vulnerability, lack of coping capacity, and consolidated risk model development in aedesproject-uif.</p>
+<h3 id="main-functions_2">Main Functions</h3>
+<h4 id="function-name_2">Function Name</h4>
+<p><code>1. train_risk_model(ISO_COUNTRY_CODE, TARGET_VAR, risk_dimension)</code></p>
+<h4 id="description_5">Description</h4>
+<p>Main function used for building the hazard, vulnerability, and lack of coping capacity scoring model.</p>
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li><code>ISO_COUNTRY_CODE</code>: ISO code of a country.</li>
+<li><code>TARGET_VAR</code>: Target outcome with which one wants the risk score to be correlated.</li>
+<li><code>risk_dimension</code>: Risk Dimension.  Valid values = {"Hazard", "Vulnerability", "Lack of Coping Capacity"}</li>
+</ul>
+<h3 id="usage_2">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.ml.risk_model_dev import train_risk_model
+train_risk_model(&quot;PHL&quot;, &quot;CFR&quot;, &quot;Hazard&quot;)
+train_risk_model(&quot;PHL&quot;, &quot;CFR&quot;, &quot;Vulnerability&quot;)
+train_risk_model(&quot;PHL&quot;, &quot;CFR&quot;, &quot;Lack of Coping Capacity&quot;)
+</code></pre>
+<h4 id="function-name_3">Function Name</h4>
+<p><code>2. train_final_risk_model(ISO_COUNTRY_CODE, TARGET_VAR)</code></p>
+<h4 id="description_6">Description</h4>
+<p>Main function used for building the final risk scoring model based on hazard, vulnerability, and lack of coping capacity scores.  Note that the individual risk dimension scores from <em>train_risk_model()</em> should exist before fitting the final risk model.</p>
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li><code>ISO_COUNTRY_CODE</code>: ISO code of a country.</li>
+<li><code>TARGET_VAR</code>: Target outcome with which one wants the risk score to be correlated.</li>
+</ul>
+<h3 id="usage_3">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.ml.risk_model_dev import train_final_risk_model
+train_final_risk_model(&quot;PHL&quot;, &quot;CFR&quot;)
+</code></pre>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
