@@ -1,0 +1,1655 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../initialization/">
+      
+      
+        <link rel="next" href="../data_preparation/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Syntax: Data Extraction - Advanced Early Detection and Exploration Service (AEDES) Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom_css.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lightBlue" data-md-color-accent="Blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-extraction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-header__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Advanced Early Detection and Exploration Service (AEDES) Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Syntax: Data Extraction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Advanced Early Detection and Exploration Service (AEDES) Documentation" class="md-nav__button md-logo" aria-label="Advanced Early Detection and Exploration Service (AEDES) Documentation" data-md-component="logo">
+      
+  <img src="../images/aedes_logo.png" alt="logo">
+
+    </a>
+    Advanced Early Detection and Exploration Service (AEDES) Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dengue_forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dengue_hotspot_detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Dengue Hotspot Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multidimensional_risk_scoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Methodology: Multidimensional Risk Scoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting Up Project Structure in Working Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Syntax: Data Extraction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Extraction
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admin_boundaries" class="md-nav__link">
+    admin_boundaries
+  </a>
+  
+    <nav class="md-nav" aria-label="admin_boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demographics" class="md-nav__link">
+    demographics
+  </a>
+  
+    <nav class="md-nav" aria-label="demographics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_1" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name_2" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google_trends" class="md-nav__link">
+    google_trends
+  </a>
+  
+    <nav class="md-nav" aria-label="google_trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_1" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_3" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meteorological" class="md-nav__link">
+    meteorological
+  </a>
+  
+    <nav class="md-nav" aria-label="meteorological">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_2" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_4" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_8" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_3" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nasa_appeears" class="md-nav__link">
+    nasa_appeears
+  </a>
+  
+    <nav class="md-nav" aria-label="nasa_appeears">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_9" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_1" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_5" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_10" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name_6" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_11" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_4" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nasa_worldview" class="md-nav__link">
+    nasa_worldview
+  </a>
+  
+    <nav class="md-nav" aria-label="nasa_worldview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_12" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_3" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_7" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_13" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_5" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osm" class="md-nav__link">
+    osm
+  </a>
+  
+    <nav class="md-nav" aria-label="osm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_14" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_4" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_8" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_15" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_6" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_preparation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Data Preparation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax: Prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admin_boundaries" class="md-nav__link">
+    admin_boundaries
+  </a>
+  
+    <nav class="md-nav" aria-label="admin_boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demographics" class="md-nav__link">
+    demographics
+  </a>
+  
+    <nav class="md-nav" aria-label="demographics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_1" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name_2" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google_trends" class="md-nav__link">
+    google_trends
+  </a>
+  
+    <nav class="md-nav" aria-label="google_trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_1" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_3" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meteorological" class="md-nav__link">
+    meteorological
+  </a>
+  
+    <nav class="md-nav" aria-label="meteorological">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_2" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_4" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_8" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_3" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nasa_appeears" class="md-nav__link">
+    nasa_appeears
+  </a>
+  
+    <nav class="md-nav" aria-label="nasa_appeears">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_9" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-functions_1" class="md-nav__link">
+    Main Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_5" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_10" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-name_6" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_11" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_4" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nasa_worldview" class="md-nav__link">
+    nasa_worldview
+  </a>
+  
+    <nav class="md-nav" aria-label="nasa_worldview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_12" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_3" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_7" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_13" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_5" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osm" class="md-nav__link">
+    osm
+  </a>
+  
+    <nav class="md-nav" aria-label="osm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_14" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-function_4" class="md-nav__link">
+    Main Function
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-name_8" class="md-nav__link">
+    Function Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_15" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_6" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="data-extraction">Data Extraction</h1>
+<h2 id="overview">Overview</h2>
+<p>This section covers the various modules used for data extraction in aedesproject-uif. 
+The modules handle different sources and types of data relevant to early dengue detection 
+and exploration services. These include geographical, meteorological, demographic, search interest, and various 
+other types of data.</p>
+<hr />
+<h2 id="admin_boundaries">admin_boundaries</h2>
+<h3 id="description">Description</h3>
+<p>This module is used for extracting administrative boundaries data. It fetches geographical data 
+and provides it in a format suitable for further analysis.</p>
+<h3 id="main-function">Main Function</h3>
+<h4 id="function-name">Function Name</h4>
+<p><code>fetch_geoboundaries(iso_country_code, admin_level)</code></p>
+<h4 id="description_1">Description</h4>
+<p>Fetches geographical boundaries from www.geoboundaries.org based on the ISO country code and administrative level.</p>
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>admin_level</code>: Administrative level for which the boundaries are fetched.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.admin_boundaries import save_admin_regions
+save_admin_regions(&quot;PHL&quot;, 2)
+</code></pre>
+<hr />
+<h2 id="demographics">demographics</h2>
+<h3 id="description_2">Description</h3>
+<p>The <code>demographics</code> module is responsible for fetching demographic data, including indices like 
+relative wealth, population density, and other relevant metrics.</p>
+<h3 id="main-functions">Main Functions</h3>
+<h4 id="function-name_1">Function Name</h4>
+<ol>
+<li><code>fetch_relative_wealth_index(country, iso_country_code)</code></li>
+</ol>
+<h4 id="description_3">Description</h4>
+<p>Fetches the relative wealth index for a given country.</p>
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><code>country</code>: Name of the country.</li>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+</ul>
+<h4 id="function-name_2">Function Name</h4>
+<ol>
+<li><code>fetch_population_density(country, iso_country_code, segment)</code></li>
+</ol>
+<h4 id="description_4">Description</h4>
+<p>Fetches the population density data for a given country.</p>
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li><code>country</code>: Name of the country.</li>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>segment</code>: Valid values = {'general', 'children_under_five', 'elderly_60_plus', 'youth_15_24'}</li>
+</ul>
+<h3 id="usage_1">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.demographics import fetch_population_density, fetch_relative_wealth_index
+fetch_population_density(&quot;Philippines&quot;, &quot;PHL&quot;, &quot;general&quot;)
+fetch_relative_wealth_index(&quot;Philippines&quot;, &quot;PHL&quot;)
+</code></pre>
+<hr />
+<h2 id="google_trends">google_trends</h2>
+<h3 id="description_5">Description</h3>
+<p>This module allows you to fetch data from Google Trends, focusing on keywords and search queries 
+related to dengue.</p>
+<h3 id="main-function_1">Main Function</h3>
+<h4 id="function-name_3">Function Name</h4>
+<p><code>fetch_google_trends(iso_country_code, start_date, end_date)</code></p>
+<h4 id="description_6">Description</h4>
+<p>Fetches Google Trends data for a given country and time range.</p>
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>start_date</code>: Start date for fetching data (in 'yyyy-mm-dd').</li>
+<li><code>end_date</code>: End date for fetching data (in 'yyyy-mm-dd').</li>
+</ul>
+<h3 id="usage_2">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.google_trends import fetch_google_trends
+fetch_google_trends('PHL', '2016-01-10', '2021-01-10')
+</code></pre>
+<hr />
+<h2 id="meteorological">meteorological</h2>
+<h3 id="description_7">Description</h3>
+<p>The <code>meteorological</code> module handles the extraction of weather-related data. This includes 
+temperature, humidity, and other meteorological factors.</p>
+<h3 id="main-function_2">Main Function</h3>
+<h4 id="function-name_4">Function Name</h4>
+<p><code>fetch_weather_data(iso_country_code, start, end)</code></p>
+<h4 id="description_8">Description</h4>
+<p>Fetches weather data for a given country and year range.</p>
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>start</code>: Start year for fetching data (in yyyy).</li>
+<li><code>end</code>: End year for fetching data (in yyyy).</li>
+</ul>
+<h3 id="usage_3">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.meteorological import fetch_weather_data
+fetch_weather_data(&quot;PHL&quot;, 2016, 2021)
+</code></pre>
+<hr />
+<h2 id="nasa_appeears">nasa_appeears</h2>
+<h3 id="description_9">Description</h3>
+<p>This module interacts with NASA Application for Extracting and Exploring Analysis Ready Samples (AρρEEARS)'s API to fetch various types of remote sensing data.  The AρρEEARS API requires a NASA Earthdata Login.  Register for NASA EarthData login <a href="https://urs.earthdata.nasa.gov/users/new?client_id=ZAQpxSrQNpk342OR77kisA&amp;redirect_uri=https%3A%2F%2Fappeears.earthdatacloud.nasa.gov%2Flogin&amp;response_type=code&amp;state=%2F">here</a>.</p>
+<h3 id="main-functions_1">Main Functions</h3>
+<h4 id="function-name_5">Function Name</h4>
+<ol>
+<li>get_earthdata_token()</li>
+</ol>
+<h4 id="description_10">Description</h4>
+<p>Prompts the user to enter their NASA Earthdata Login Username and Password. It then sends a POST request to authenticate the user.  If authentication is successful, it returns an authorization header containing a Bearer token.  If the authentication fails, an error message is logged, and None is returned.</p>
+<h4 id="parameters_5">Parameters</h4>
+<p><code>None</code></p>
+<h4 id="function-name_6">Function Name</h4>
+<ol>
+<li><code>fetch_nasa_appeears(headers, iso_country_code, subregion, adm_lvl, start_date, end_date)</code></li>
+</ol>
+<h4 id="description_11">Description</h4>
+<p>Fetches spectral band layers of Harmonized Landsat and Sentinel-2 Land Surface Reflectance images from NASA AρρEEARS' API within a specified date range.</p>
+<h4 id="parameters_6">Parameters</h4>
+<ul>
+<li><code>headers</code>: Bearer token from get_earthdata_token().</li>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>subregion</code>: Name of a particular subregion in the country.</li>
+<li><code>adm_lvl</code>: Administrative boundary level of the subregion selected.</li>
+<li><code>start_date</code>: Start date for fetching data (in 'mm-dd-yyyy')</li>
+<li><code>end_date</code>: End date for fetching data (in 'mm-dd-yyyy')</li>
+</ul>
+<h3 id="usage_4">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.nasa_appeears import get_earthdata_token, fetch_nasa_appeears
+headers = get_earthdata_token()
+fetch_nasa_appeears(headers, &quot;PHL&quot;, &quot;Zamboanga Sibugay&quot;, 2, '01-01-2021', '01-10-2021')
+</code></pre>
+<hr />
+<h2 id="nasa_worldview">nasa_worldview</h2>
+<h3 id="description_12">Description</h3>
+<p><code>nasa_worldview</code> is used for extracting Earth imaging data from NASA's Worldview service.</p>
+<h3 id="main-function_3">Main Function</h3>
+<h4 id="function-name_7">Function Name</h4>
+<p><code>fetch_nasa_worldview(iso_country_code, subregion, region, start_date, end_date, interval)</code></p>
+<h4 id="description_13">Description</h4>
+<p>Fetches Earth imaging data for a given subregion in a country within a specified date range.</p>
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>subregion</code>: Name of a particular subregion in the country.</li>
+<li><code>region</code>: Name of the region under which the selected subregion falls.</li>
+<li><code>start_date</code>: Start date for fetching data (in 'yyyy-mm-dd')</li>
+<li><code>end_date</code>: End date for fetching data (in 'yyyy-mm-dd')</li>
+<li><code>interval</code>: Valid values = {'D' = daily, 'W' = weekly, 'M' = monthly, 'Q' = quarterly} </li>
+</ul>
+<h3 id="usage_5">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.nasa_worldview import fetch_nasa_worldview
+fetch_nasa_worldview(&quot;PHL&quot;, &quot;Zamboanga Sibugay&quot;, &quot;Zamboanga Peninsula&quot;, &quot;2016-01-10&quot;, &quot;2021-01-10&quot;, &quot;W&quot;)
+</code></pre>
+<hr />
+<h2 id="osm">osm</h2>
+<h3 id="description_14">Description</h3>
+<p>The <code>osm</code> module is used for fetching data from OpenStreetMap, including Points of Interest (POIs) 
+and other geographical data.</p>
+<h3 id="main-function_4">Main Function</h3>
+<h4 id="function-name_8">Function Name</h4>
+<p><code>fetch_osm(iso_country_code, admin_level)</code></p>
+<h4 id="description_15">Description</h4>
+<p>Fetches OpenStreetMap places of interest (POI) data of all subregions of a given country.</p>
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li><code>iso_country_code</code>: ISO code of the country.</li>
+<li><code>admin_level</code>: Administrative boundary level to fetch data for.</li>
+</ul>
+<h3 id="usage_6">Usage</h3>
+<pre><code class="language-python">from aedesproject_uif.data_extraction.osm import fetch_osm
+fetch_osm(&quot;PHL&quot;, 2)
+</code></pre>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
