@@ -95,6 +95,9 @@ If you have other questions or feedback, contact us via email at support@aedespr
 
 Follow our social media channels to stay updated with the latest information, news, and community discussions.
 
+**Twitter:** [@aedes_ai](https://twitter.com/aedes_ai)
+**Facebook:** [@aedesproject.org](https://web.facebook.com/aedesproject.org?_rdc=1&_rdr)
+**LinkedIn:** [company/project-aedes](https://www.linkedin.com/company/30893221/admin/feed/posts/)
 
 ## Citation
 
